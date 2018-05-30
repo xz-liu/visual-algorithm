@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HOMEWORK</title>
+
+    <link href="https://res.joker.im/Content/bootstrap.css" rel="stylesheet"/>
+    <link rel="icon" href="https://res.joker.im/favicon_code.ico" type="image/x-icon"/>
+    <link rel="shortcut icon" href="https://res.joker.im/favicon_code.ico" type="image/x-icon"/>
+    <link href="https://res.joker.im/Fonts/css/fontawesome.css" media="all" rel="stylesheet"/>
+    <link href="https://res.joker.im/Fonts/css/fontawesome-all.css" media="all" rel="stylesheet"/>
+    <!--<link href="../Content/bootstrap.min.css" rel="stylesheet">-->
+    <link href="css/styles.css" rel="stylesheet">
+</head>
+<body>
+<div class="shadow_effect">
+    <div class="input-group ">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Points count</span>
+        </div>
+        <input type="number" class="form-control" id="points_count"/>
+    </div>
+    <div class="input-group ">
+        <div class="input-group-prepend">
+            <span class="input-group-text">X min</span>
+        </div>
+        <input type="number" class="form-control" id="x_min"/>
+    </div>
+    <div class="input-group ">
+        <div class="input-group-prepend">
+            <span class="input-group-text">X max</span>
+        </div>
+        <input type="number" class="form-control" id="x_max"/>
+    </div>
+    <div class="input-group ">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Y min</span>
+        </div>
+        <input type="number" class="form-control" id="y_min"/>
+    </div>
+    <div class="input-group ">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Y max</span>
+        </div>
+        <input type="number" class="form-control" id="y_max"/>
+    </div>
+</div>
+<hr class="my-1">
+<div class="btn btn-group shadow_effect" id="ctrl">
+    <div class="btn btn-outline-info ctrl_class" id="generate">
+        <i class="fas fa-random"></i> Generate
+    </div>
+    <div class="btn btn-outline-success ctrl_class" id="run_demo">
+        <i class="fas fa-play"></i> Run demo
+    </div>
+    <div class="btn btn-outline-danger ctrl_class" id="run_bf_demo">
+        <i class="fas fa-play"></i> Run brute force
+    </div>
+    <div class="btn btn-outline-warning ctrl_class" id="run">
+        <i class="fas fa-fast-forward"></i> Run
+    </div>
+    <div class="btn btn-outline-secondary ctrl_class" id="clear">
+        <i class="fas fa-pause"></i> Clear
+    </div>
+</div>
+
+<div class="modal fade" id="show_result" tabindex="-1" role="dialog" aria-labelledby="show_result" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5><i class="fas fa-info-circle"></i></h5>
+                <h5 class="modal-title" id="result_title">
+                    &nbsp;RESULT
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="result_text">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="hint">
+    <div id="line_horizontal"></div>
+    <div id="line_vertical"></div>
+    <div id="pos_now"></div>
+</div>
+<canvas id="output_grid" height="700" class="shadow_effect"></canvas>
+<!--<script src="../Scripts/jquery-3.1.1.min.js"></script>-->
+<!--<script src="../Scripts/bootstrap.bundle.min.js"></script>-->
+
+<script src="https://res.joker.im/Scripts/jquery-3.1.1.min.js"></script>
+<script src="https://res.joker.im/Scripts/bootstrap.bundle.min.js"></script>
+<script src="js/grid.js"></script>
+<script src="js/algorithms.js"></script>
+<script src="js/scripts.js"></script>
+</body>
+</html>

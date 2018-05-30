@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JOKER'S WEB LABORATORY</title>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link href="https://res.joker.im/Content/bootstrap.css" rel="stylesheet"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+</head>
+<body>
+<div class="container">
+    <div class="btn-group-vertical btn-block" id="view_all">
+    </div>
+</div>
+<script src="https://res.joker.im/Scripts/jquery-3.1.1.min.js"></script>
+<script src="https://res.joker.im/Scripts/bootstrap.min.js"></script>
+<script>
+    function addDirs(pack) {
+        var html='';
+        for(var i in pack){
+            html+="<a class=\"btn btn-outline-primary\" href='"+pack[i] +"'>"+pack[i]+"</a>";
+        }
+        $('#view_all').html(html);
+    }
+</script>
+</body>
+</html>
