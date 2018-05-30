@@ -2,18 +2,14 @@
 <html>
 <head>
     <meta charset="utf-8"/>
+    <title>Turing Machine</title>
     <meta name="description" content="General Turing Machine Emulator"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-    <title>Turing Machine</title>
     <link href="https://res.joker.im/Content/bootstrap.css" rel="stylesheet"/>
     <link rel="icon" href="https://res.joker.im/favicon_code.ico" type="image/x-icon"/>
     <link rel="shortcut icon" href="https://res.joker.im/favicon_code.ico" type="image/x-icon"/>
-    <link href="https://res.joker.im/Fonts/css/fontawesome.css" media="all" rel="stylesheet"/>
     <link href="https://res.joker.im/Fonts/css/fontawesome-all.css" media="all" rel="stylesheet"/>
-    <link href="styles.css" media="all" rel="stylesheet"/>
-    <script src="https://res.joker.im/Scripts/jquery-3.1.1.min.js"></script>
-    <script src="https://res.joker.im/Scripts/bootstrap.bundle.js"></script>
-    <script src="machine_ctrl.js"></script>
+    <link href="css/styles.css" media="all" rel="stylesheet"/>
 </head>
 <body id="page_body">
 <div class="container shadow_effect rounded">
@@ -117,15 +113,9 @@
         </div>
     </div>
 </div>
-<?php
-echo '<script>';
-    if (isset($_REQUEST['code'])){
-        echo 'getById("input").value="'.$_REQUEST['code'].'";';
-    }
-    if(isset($_REQUEST['memory'])){
-        echo 'getById("memory").value="'.$_REQUEST['memory'].'";';
-    }
-echo '</script>';
-?>
+<script src="https://res.joker.im/Scripts/jquery-3.1.1.min.js"></script>
+<script src="https://res.joker.im/Scripts/bootstrap.bundle.js"></script>
+<script src="js/init.js"></script>
+<script src="js/machine_ctrl.js"></script>
 </body>
 </html>
