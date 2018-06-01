@@ -1,24 +1,34 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>JOKER'S WEB LABORATORY</title>
+    <title>visual-algorithm</title>
     <meta charset="utf-8">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link href="https://res.joker.im/Content/bootstrap.css" rel="stylesheet"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <style>
+        #back{
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            z-index: -1;
+        }
+    </style>
 </head>
 <body>
 <div class="container">
+    <h1><code>visual-algorithm</code></h1>
     <div class="btn-group-vertical btn-block" id="view_all">
     </div>
 </div>
+<img id='back' src="../home.png"/>
 <script src="https://res.joker.im/Scripts/jquery-3.1.1.min.js"></script>
 <script src="https://res.joker.im/Scripts/bootstrap.min.js"></script>
 <script>
     function addDirs(pack) {
-        var html='';
+        var html='<a class=\"btn btn-outline-success\" href="https://github.com/joker-xii/visual-algorithm"><h2>GITHUB</h2></a>';
         for(var i in pack){
-            html+="<a class=\"btn btn-outline-primary\" href='"+pack[i] +"'>"+pack[i]+"</a>";
+            html+="<a class=\"btn btn-outline-primary\" href='"+pack[i] +"'><h2>"+pack[i]+"</h2></a>";
         }
         $('#view_all').html(html);
     }
