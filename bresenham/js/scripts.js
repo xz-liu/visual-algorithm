@@ -61,10 +61,18 @@ $("#output_grid").mousemove(function(e){
         var nowX=Math.floor(ox/width*x);
         var nowY=Math.floor(oy/height*y);  
         var rects=getLine(cx,cy,nowX,nowY);
-        console.log(rects);
+        var cRects=getCircle(cx,cy,nowX,nowY);
+        var eRects=getEllipse(cx,cy,nowX,nowY);
+        console.log(eRects);
         gridNow.clearRects();
         for(var i in rects){
             gridNow.addRect([rects[i][0],rects[i][1]],[1,1],'red');
+        }
+        for(var i in cRects){
+            gridNow.addRect([cRects[i][0],cRects[i][1]],[1,1],'blue');
+        }
+        for(var i in eRects){
+            gridNow.addRect([eRects[i][0],eRects[i][1]],[1,1],'green');
         }
         gridNow.act();
     }}
@@ -72,8 +80,12 @@ $("#output_grid").mousemove(function(e){
 
 $(document).ready(function () {
     updateCanvas();
-    $('#data_x').val(100);
-    $('#data_y').val(70);
+    
+    
+    $('#data_x').val(
+        Math.floor($(window).width()/10));
+    $('#data_y').val(
+        Math.floor($(window).height()/10));
     onGridSizeChange();
 });
 

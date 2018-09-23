@@ -75,7 +75,7 @@ Grid.prototype.fillRect = function (ctx, x1, y1, x2, y2) {
     // ctx.strokeStyle=config.colorSelected;
     // _fillPointImpl(ctx, dot1[0], dot1[1], config);
     // _fillPointImpl(ctx, dot2[0], dot2[1], config);
-    console.log("Draw rect: "+ dot1+" "+dot2);
+    // console.log("Draw rect: "+ dot1+" "+dot2);
     ctx.fillRect(dot1[0], dot1[1], dot2[0], dot2[1]);
 };
 Grid.prototype.addPoint = function (x, y) {
