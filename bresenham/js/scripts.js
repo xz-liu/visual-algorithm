@@ -17,11 +17,13 @@ function onGridSizeChange(){
     y=$("#data_y").val();
     if(x<=0||y<=0)return;
     gridNow= new Grid("output_grid",0,x,0,y);
-    for( var i=0;i<y;i++){
-        gridNow.addLine([0,i],[x,i],'gray');
-    }
-    for( var i=0;i<x;i++){
-        gridNow.addLine([i,0],[i,y],'gray');
+    if(x*5<$(window).width()&&y*5<$(window).height()){
+        for( var i=0;i<=y;i++){
+            gridNow.addLine([0,i],[x,i],'gray');
+        }
+        for( var i=0;i<=x;i++){
+            gridNow.addLine([i,0],[i,y],'gray');
+        }
     }
     gridNow.act();
 }
