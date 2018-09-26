@@ -59,13 +59,13 @@ function getEllipse(x0, y0, x1, y1) {
         b = [a, a = b][0];
     }
     var res = [];
-    console.log('ab ' + a + " " + b);
+    //console.log('ab ' + a + " " + b);
     var x = 0, y = b;
     var a2 = a * a, b2 = b * b;
     var p = b2 + Math.floor((a2 * (1 - 4 * b) - 2) / 4);
     var dpe = 3 * b2, d2pe = 2 * b2, dpse = dpe - 2 * a2 * (b - 1), d2pse = d2pe + 2 * a2;
 
-    var pushRes = function (xc, yc, xn, yn) {
+    var pushRes = function (xc, yc, yn, xn) {
         res.push([xc + xn, yc + yn]);
         res.push([xc - xn, yc + yn]);
         res.push([xc + xn, yc - yn]);

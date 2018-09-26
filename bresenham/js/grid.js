@@ -36,8 +36,8 @@ function _drawLineImpl(ctx, p1, p2) {
 Grid.prototype.calculatePositon = function (x, y) {
     var dotX = (x - this.boundL) / this.bWidth;
     var dotY = (y - this.boundD) / this.bHeight;
-    dotX = parseInt(dotX * this.elemWidth);
-    dotY = parseInt((1 - dotY) * this.elemHeight);
+    dotX = Math.floor(0.5 + dotX * this.elemWidth);
+    dotY = Math.floor(0.5 + (1 - dotY) * this.elemHeight);
     return [dotX, dotY];
 };
 
@@ -51,7 +51,6 @@ Grid.prototype.clearScreen = function () {
 
 Grid.prototype.drawPoint = function (ctx, x, y) {
     var dot = this.calculatePositon(x, y);
-    // var ctx=this.ctx();
     _fillPointImpl(ctx, dot[0], dot[1]);
 };
 
@@ -63,19 +62,12 @@ Grid.prototype.setColor = function (ctx, color) {
 Grid.prototype.drawLine = function (ctx, x1, y1, x2, y2) {
     var dot1 = this.calculatePositon(x1, y1),
         dot2 = this.calculatePositon(x2, y2);
-    // ctx.strokeStyle=config.colorSelected;
-    // _fillPointImpl(ctx, dot1[0], dot1[1], config);
-    // _fillPointImpl(ctx, dot2[0], dot2[1], config);
     _drawLineImpl(ctx, dot1, dot2, config);
 };
 
 Grid.prototype.fillRect = function (ctx, x1, y1, x2, y2) {
     var dot1 = this.calculatePositon(x1, y1),
         dot2 = this.calculatePositon(x2, y2);
-    // ctx.strokeStyle=config.colorSelected;
-    // _fillPointImpl(ctx, dot1[0], dot1[1], config);
-    // _fillPointImpl(ctx, dot2[0], dot2[1], config);
-    // console.log("Draw rect: "+ dot1+" "+dot2);
     ctx.fillRect(dot1[0], dot1[1], dot2[0], dot2[1]);
 };
 Grid.prototype.addPoint = function (x, y) {
@@ -104,8 +96,9 @@ Grid.prototype.clearPoints = function () {
     }
 };
 
-Grid.prototype.clearRects = function () {
-    if (this.rects.length) {
+Grid.prototype.clearRects = function (prev) {
+    if (prev) this.rects = prev;
+    else if (this.rects.length) {
         this.rects = [];
         this.act();
     }
