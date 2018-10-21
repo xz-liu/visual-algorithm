@@ -34,6 +34,11 @@ function Grid(id, boundL, boundR, boundU, boundD) {
     this.boundD = boundD;//700
     this.bWidth = (boundR - boundL);
     this.bHeight = (boundU - boundD);
+    var dotX = (1 - this.boundL) / this.bWidth;
+    var dotY = (1 - this.boundD) / this.bHeight;
+    dotX = ( dotX * this.elemWidth);
+    dotY = ((1 - dotY) * this.elemHeight);
+    this.gridUnit = [dotX, dotY];
     this.clear();
 }
 
@@ -58,6 +63,10 @@ Grid.prototype.calculatePositon = function (x, y) {
     dotY = Math.floor(0.5 + (1 - dotY) * this.elemHeight);
     return [dotX, dotY];
 };
+
+Grid.prototype.calculatePositonInst = function (x, y) {
+    return [this.gridUnit[0] * x, this.gridUnit[1] * y];
+}
 
 Grid.prototype.ctx = function () {
     return this.elem.getContext("2d");
@@ -128,7 +137,9 @@ Grid.prototype.clear = function () {
     this.rects = [];
     this.act();
 };
-
+Grid.prototype.setNextColor = function (color) {
+    this.setColor(this.ctx(), color);
+}
 Grid.prototype.act = function () {
     this.clearScreen();
     var ctx = this.ctx();
@@ -159,6 +170,15 @@ Grid.prototype.addVisLine = function (p1, p2, color) {
     this.setColor(ctx, color);
     this.drawLine(ctx, p1[0], p1[1], p2[0], p2[1]);
 };
+Grid.prototype.addVisRect = function (p1, p2, color) {
+    this.addRect(p1, p2, color);
+    var ctx = this.ctx();
+    this.setColor(ctx, color);
+    this.fillRect(ctx, p1[0], p1[1], p2[0], p2[1]);
+};
+Grid.prototype.drawBlockInst = function (p, ctx) {
+    ctx.fillRect(p[0] * this.gridUnit[0], p[1] * this.gridUnit[1], this.gridUnit[0], this.gridUnit[1]);
+}
 
 Grid.prototype.getPoints = function () {
     return this.points;

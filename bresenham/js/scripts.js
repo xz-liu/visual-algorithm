@@ -55,22 +55,6 @@ $("#output_grid").click(function (e) {
 
     }
 });
-function RGBA(r, g, b, a, mxVal) {
-    r = Math.floor(r / mxVal * 256);
-    g = Math.floor(g / mxVal * 256);
-    b = Math.floor(b / mxVal * 256);
-    a = (a / mxVal);
-    return "rgba(" + [r, g, b, a].join() + ")";
-}
-function randomColor() {
-    return RGBA(
-        Math.random(),
-        Math.random(),
-        Math.random(),
-        1,
-        1
-    );
-}
 $("#output_grid").mousemove(function (e) {
     if (gridNow) {
         if (isClicked) {

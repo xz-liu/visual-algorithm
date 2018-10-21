@@ -1,0 +1,49 @@
+#output_grid{
+    /*position: fixed;*/
+    width: 98%;
+    margin-left: 1%;
+    margin-top: 1vw;
+    height: 700px;
+    border: 1px;
+    border-color:black;
+    /*z-index: -1;*/
+}
+#hint{
+    position: fixed;
+    height:100%;
+    width: 100%;
+}
+#line_horizontal{
+    position: fixed;
+    height: 100vh;
+    width: 1px;
+    background-color: black;
+}
+#line_vertical{
+    position: fixed;
+    height: 1px;
+    width:100vw;
+    background-color: black;
+}
+#ctrl{
+    width: 100%;
+}
+#pos_now{
+    position: fixed;
+    background-color: white;
+    margin-top: 3px;
+    margin-left: 3px;
+    color: black;
+    font-size: large;
+}
+
+#result_text{
+    word-wrap: break-word;
+}
+
+.ctrl_class{
+     width: 20%;
+}
+.shadow_effect{
+    box-shadow: 0 5px 10px 0 rgba(0,0,0,0.3);
+}
